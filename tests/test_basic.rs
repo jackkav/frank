@@ -10,8 +10,8 @@ fn test_basic() {
     assert_eq!("e", &"hello"[1..2]);
     assert_eq!([2, 3], &[1, 2, 3][1..]);
     // reduce
-    assert_eq!(6, [1, 2, 3].iter().fold(0, |total, next| total + next));
-    assert_eq!(24, [1, 2, 3, 4].iter().fold(1, |total, next| total * next));
+    assert_eq!(6, [1, 2, 3].iter().sum());
+    assert_eq!(24, [1, 2, 3, 4].iter().product());
 
     // filter
     assert_eq!(true, [0, 1, 0].iter().any(|&x| x == 1));
@@ -54,6 +54,8 @@ fn test_basic() {
     // split string
     assert_eq!(
         vec!["some", "string", "123", "ffd"],
-        "some string 123 ffd".split(" ").collect::<Vec<&str>>()
-    )
+        "some string 123 ffd".split(' ').collect::<Vec<_>>()
+    );
+    // generate a list of numbers
+    assert_eq!(vec![1, 2, 3], (1..4).collect::<Vec<_>>());
 }

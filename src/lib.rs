@@ -1,3 +1,3 @@
-pub fn farenheit(_celsius: f32) -> f32 {
-    (_celsius - 32f32) * 5f32 / 9f32
+pub fn farenheit(celsius: i32) -> i32 {
+    (((celsius as f32) - 32.) * 5. / 9.) as i32
 }
