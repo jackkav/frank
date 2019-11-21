@@ -4,6 +4,16 @@ fn test_basic() {
     assert_eq!([2], [2]);
     assert_eq!("olleh", "hello".chars().rev().collect::<String>());
     assert_eq!("HELLO", "hello".to_uppercase());
+    assert_eq!('2', "123".chars().nth(1).unwrap());
+    assert_eq!(
+        2i32,
+        (123.to_string())
+            .chars()
+            .nth(1)
+            .unwrap()
+            .to_digit(10)
+            .unwrap() as i32
+    );
     // trimming
     assert_eq!("ello", &"hello"[1..]);
     assert_eq!("he", &"hello"[..2]);
