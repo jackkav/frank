@@ -5,23 +5,11 @@ fn test_basic() {
     assert_eq!("olleh", "hello".chars().rev().collect::<String>());
     assert_eq!("HELLO", "hello".to_uppercase());
     assert_eq!('2', "123".chars().nth(1).unwrap());
-    assert_eq!(
-        2i32,
-        (123.to_string())
-            .chars()
-            .nth(1)
-            .unwrap()
-            .to_digit(10)
-            .unwrap() as i32
-    );
     // trimming
     assert_eq!("ello", &"hello"[1..]);
     assert_eq!("he", &"hello"[..2]);
     assert_eq!("e", &"hello"[1..2]);
     assert_eq!([2, 3], &[1, 2, 3][1..]);
-    // reduce
-    assert_eq!(6, [1, 2, 3].iter().sum());
-    assert_eq!(24, [1, 2, 3, 4].iter().product());
 
     // filter
     assert_eq!(true, [0, 1, 0].iter().any(|&x| x == 1));
