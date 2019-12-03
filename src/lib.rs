@@ -1,5 +1,8 @@
 use std::error::Error;
 use std::fs::read_to_string;
+use std::fs::File;
+use std::io::prelude::*;
+use std::io::BufReader;
 
 pub fn farenheit(celsius: i32) -> i32 {
     (((celsius as f32) - 32.) * 5. / 9.) as i32
@@ -65,14 +68,6 @@ pub fn read_file(path: &str) -> String {
 }
 pub fn reverse_words(input: &str) -> String {
     let mut split_char = " ";
-    // let mut two = " ";
-    // for i in 9..1 {
-    //     two = &" ".repeat(i).to_string();
-    //     if String::from(input).contains(two) {
-    //         split_char = two;
-    //         break;
-    //     }
-    // }
     if String::from(input).contains("  ") {
         split_char = "  "
     }
@@ -81,4 +76,11 @@ pub fn reverse_words(input: &str) -> String {
         .map(|x| x.chars().rev().collect())
         .collect();
     n.join(split_char)
+}
+pub fn parse_input(path: &str) -> Vec<String> {
+    let buf = BufReader::new(File::open(path).unwrap());
+    buf.lines()
+        .map(|result| result.unwrap())
+        .map(|line| line.parse::<String>().unwrap())
+        .collect()
 }
