@@ -1,3 +1,5 @@
+use std::char;
+
 #[test]
 fn test_basic() {
     assert_eq!(2, 2);
@@ -46,6 +48,15 @@ fn test_basic() {
         vec![2, 2, 2],
         vec![1, 1, 1].into_iter().map(|x| x + 1).collect::<Vec<_>>()
     );
+    assert_eq!(
+        vec![97, 98, 99, 100, 101],
+        vec!['a', 'b', 'c', 'd', 'e'].into_iter().map(|x| x as u8).collect::<Vec<u8>>()
+    );
+    assert_eq!(
+        vec!['a', 'b', 'c', 'd', 'e'],
+        (0..5).map(|x| (x + b'a') as char).collect::<Vec<char>>()
+    );
+
     // binary
     assert_eq!(format!("{:b}", 42), "101010");
     assert_eq!(42, isize::from_str_radix("101010", 2).unwrap());
