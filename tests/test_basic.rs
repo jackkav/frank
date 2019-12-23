@@ -13,25 +13,6 @@ fn test_basic() {
     assert_eq!("e", &"hello"[1..2]);
     assert_eq!([2, 3], &[1, 2, 3][1..]);
 
-    // filter
-    assert_eq!(true, [0, 1, 0].iter().any(|&x| x == 1));
-    assert_eq!(true, [1, 1, 1].iter().all(|&x| x == 1));
-    assert_eq!(
-        vec![1, 2],
-        vec![1, 2, 3, 4]
-            .into_iter()
-            .filter(|&s| s < 3)
-            .collect::<Vec<_>>()
-    );
-    // filter none integers, Vec ~= List
-    assert_eq!(
-        vec![93, 18],
-        vec!["tofu", "93", "18"]
-            .into_iter()
-            .map(|s| s.parse::<i32>())
-            .filter_map(Result::ok)
-            .collect::<Vec<_>>()
-    );
     // options
     let ints = [1, 2, 3, 4, 5];
     let slice = &ints;
@@ -43,19 +24,6 @@ fn test_basic() {
     //guard
     assert_eq!(1, *first.unwrap_or(&-1));
     assert_eq!(-1, *last.unwrap_or(&-1));
-    // map
-    assert_eq!(
-        vec![2, 2, 2],
-        vec![1, 1, 1].into_iter().map(|x| x + 1).collect::<Vec<_>>()
-    );
-    assert_eq!(
-        vec![97, 98, 99, 100, 101],
-        vec!['a', 'b', 'c', 'd', 'e'].into_iter().map(|x| x as u8).collect::<Vec<u8>>()
-    );
-    assert_eq!(
-        vec!['a', 'b', 'c', 'd', 'e'],
-        (0..5).map(|x| (x + b'a') as char).collect::<Vec<char>>()
-    );
 
     // binary
     assert_eq!(format!("{:b}", 42), "101010");
@@ -67,4 +35,7 @@ fn test_basic() {
     );
     // generate a list of numbers
     assert_eq!(vec![1, 2, 3], (1..4).collect::<Vec<_>>());
+    // closure
+    let greet = |name| String::from("Hello, ") + name;
+    assert_eq!("Hello, Alice", greet("Alice"));
 }
