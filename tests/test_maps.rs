@@ -7,6 +7,8 @@ fn test_maps() {
     );
     // char to int
     assert_eq!(97, 'a' as u8);
+    // assuming a is 0
+    assert_eq!(8, ('h' as u8)-b'a'+1);
     assert_eq!(
         vec![97, 98, 99, 100, 101],
         vec!['a', 'b', 'c', 'd', 'e']
@@ -14,7 +16,7 @@ fn test_maps() {
             .map(|x| x as u8)
             .collect::<Vec<u8>>()
     );
-    // normalised int to ascii char
+    // int to ascii char
     assert_eq!('a', 97 as char);
     assert_eq!(b'a', 97);
     assert_eq!(

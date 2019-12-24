@@ -1,5 +1,3 @@
-use std::char;
-
 #[test]
 fn test_basic() {
     assert_eq!(2, 2);
@@ -38,4 +36,11 @@ fn test_basic() {
     // closure
     let greet = |name| String::from("Hello, ") + name;
     assert_eq!("Hello, Alice", greet("Alice"));
+    let sum = |a, b| a + b;
+    assert_eq!(2, sum(1, 1));
+    let sum_and_times_two = |a, b| sum(a, b) * 2;
+    assert_eq!(4, sum_and_times_two(1, 1));
+
+
 }
+
