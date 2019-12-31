@@ -41,9 +41,8 @@ fn is_letter(letter: u8) -> bool {
 }
 fn alphabet_position(text: &str) -> String {
     text.chars()
-        .filter(|&s| is_letter(s as u8))
-        .map(|x| (from_a(x as u8).to_string()))
-        .fold(String::new(), |s, arg| s + &arg + " ")
-        .trim()
-        .to_string()
+        .filter(|c| c.is_alphabetic())
+        .map(|c| (c.to_ascii_uppercase() as u8 - 64).to_string())
+        .collect::<Vec<String>>()
+        .join(" ")
 }

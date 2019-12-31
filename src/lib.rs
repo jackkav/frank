@@ -84,3 +84,13 @@ pub fn parse_input(path: &str) -> Vec<String> {
         .map(|line| line.parse::<String>().unwrap())
         .collect()
 }
+pub fn fizz_buzz(to: u8) -> Vec<String> {
+    (1..=to)
+        .map(|i| match (i%3, i%5) {
+            (0, 0) => String::from("FizzBuzz"),
+            (0, _) => String::from("Fizz"),
+            (_, 0) => String::from("Buzz"),
+            (_, _) => i.to_string(),
+        })
+        .collect::<Vec<String>>()
+}

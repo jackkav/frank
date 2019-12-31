@@ -57,4 +57,5 @@ fn test_reverse_words() {
         frank::reverse_words("double  spaced  words"),
         "elbuod  decaps  sdrow"
     );
+    assert_eq!(vec!["1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"], frank::fizz_buzz(15));
 }

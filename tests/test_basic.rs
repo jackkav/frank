@@ -41,6 +41,5 @@ fn test_basic() {
     let sum_and_times_two = |a, b| sum(a, b) * 2;
     assert_eq!(4, sum_and_times_two(1, 1));
 
-
 }
 
