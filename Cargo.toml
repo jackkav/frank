@@ -8,4 +8,4 @@ edition = "2018"
 
 [dependencies]
 cargo-testify = "0.3.0"
-rustfix = "0.4.6"
+rustfix = "0.5.1"
